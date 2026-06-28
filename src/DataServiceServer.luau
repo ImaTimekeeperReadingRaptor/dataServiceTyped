@@ -106,7 +106,8 @@ function DataServiceServer:init<T>(options: DataOptions<T>)
 		self:_playerRemoving(player)
 	end)
 
-	return self.data, self
+	self.data.Service = self
+	return self
 end
 
 local function storeCancel(player: Player)
