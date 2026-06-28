@@ -1,7 +1,5 @@
 local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local RunService = game:GetService("RunService")
-local ServerScriptService = game:GetService("ServerScriptService")
 
 if RunService:IsClient() then
 	return {} :: any
@@ -107,7 +105,7 @@ function DataServiceServer:init<T>(options: DataOptions<T>)
 	end)
 
 	self.data.Service = self
-	return self
+	return self.data
 end
 
 local function storeCancel(player: Player)

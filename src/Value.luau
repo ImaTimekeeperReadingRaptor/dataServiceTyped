@@ -3,11 +3,9 @@ local KEY_KEY = "___K"
 local CHILDREN_KEY = "___C"
 local CONTAINER_KEY = "___X"
 local REPLICATOR_KEY = "___R"
-local CHANGED_KEY = "Changed"
-local ARRAY_INSERTED_KEY = "OnInsert"
-local ARRAY_REMOVED_KEY = "OnRemove"
-local INSERT = "Insert"
-local REMOVE = "Remove"
+local CHANGED_KEY = "_ChangedCbs"
+local ARRAY_INSERTED_KEY = "_OnInsertCbs"
+local ARRAY_REMOVED_KEY = "_OnRemoveCbs"
 local meta = {}
 local Value = { shouldRecordPath = false }
 
@@ -182,11 +180,11 @@ local function ArrayRemove<T>(value: Value<any>)
 end
 
 local FUNCTIONAL_KEYS = {
-	[CHANGED_KEY] = Changed,
-	[INSERT] = ArrayInsert,
-	[REMOVE] = ArrayRemove,
-	[ARRAY_INSERTED_KEY] = OnInsert,
-	[ARRAY_REMOVED_KEY] = OnRemove,
+	Changed = Changed,
+	Insert = ArrayInsert,
+	Remove = ArrayRemove,
+	OnInsert = OnInsert,
+	OnRemove = OnRemove,
 }
 
 meta.__index = function(value: Value<any>, index: string)
